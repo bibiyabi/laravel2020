@@ -25,8 +25,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
          $schedule->command('create:horoscope')
-//             ->daily()->hourly();
-                ->everyFiveMinutes();
+             ->daily()->hourly();
+//                ->everyFiveMinutes();  //for test
     }
 
     /**

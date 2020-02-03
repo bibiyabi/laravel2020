@@ -27,22 +27,6 @@ class CrawlerService
         return $crawler;
     }
 
-    public function getName(Crawler $node)
-    {
-        $result = $node->filterXPath('//div[@class="TODAY_CONTENT"]/h3')->text();
-        $result = mb_substr($result, 2, 3);
-
-        return $result;
-    }
-
-    public function getOverall(Crawler $node)
-    {
-        $result = $node->filterXPath('//span[@class="txt_green"]')->text();
-        $result = mb_substr($result, 4, 5);
-
-        return $result;
-    }
-
     public function getTodayFortune(Crawler $node)
     {
         $result = array();

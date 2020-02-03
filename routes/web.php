@@ -12,19 +12,12 @@
 */
 
 Route::get('/', function (){
-    //dd('hi');
+
     return view('welcome');
-//    echo phpinfo();
-    //return view('login.register');
 });
 
-
-Route::post('test', 'LoginController@test');
-Route::post('crawler', 'CrawlerController@testGetOriginalData');
-Route::post('crawler2', 'CrawlerController@getHoroscope');
+Route::post('crawler', 'CrawlerController@getHoroscope');
 
 
-
-//Auth::routes();
-
-//Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');

@@ -6,7 +6,6 @@ use App\Models\CrawlerHoroscope;
 use App\Services\CrawlerService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class CrawlerController extends Controller
 {
@@ -17,14 +16,6 @@ class CrawlerController extends Controller
     {
         $this->crawlerService = new CrawlerService();
         $this->crawlerHoroscope = new CrawlerHoroscope();
-    }
-
-    public function testGetOriginalData()
-    {
-//        $crawler = $this->crawlerService->getOriginalData('http://astro.click108.com.tw/daily_11.php?iAstro=11');
-        $crawler = $this->crawlerService->getOriginalData('http://astro.click108.com.tw/daily_11.php?iAstro=11');
-//        $this->assertNotEmpty($crawler->html());
-        dd($crawler);
     }
 
     public function getHoroscope()
@@ -53,6 +44,7 @@ class CrawlerController extends Controller
         }
         $result = $this->crawlerHoroscope->create($storeData);
 
+        // for test
         if ($result){
             return 'success';
         }else{
